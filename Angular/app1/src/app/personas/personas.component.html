@@ -9,17 +9,44 @@
                 transfiriendole el valor de true o false-->
             
             <!--(Event binding) En este caso capturamos el evento click para asignarle 
-                el método que queramos en la clase de personas typescript-->
+                el método agregarPersoa() de la clase de personas typescript-->
 
             <button class='btn btn-primary' 
             [disabled]='deshabilitar'
             (click)='agregarPersona()'>Agregar Persona</button>
+            
+            
+            
+            
+            
+            <!--Dentro de las etiquetas podemos usar el if y else de esta manera: 
+               *ngIf=Condición; else OcurreEsto
+
+            Si se cumple la condición, muestra el contenido de la etiqueta p que es {{mensaje}}, las palabras que hay dentro de {{}} referencian atributos de la clase
+            , en este caso personas.component.ts
+
+            Si no se cumple la condición, hemos pasado el identificador #sinPersona de la etiqueta <ng-template #sinPersona>, para que nos muestre su contenido,
+                en este caso, el parrafo que hay dentro-->
+            
             <p *ngIf="mostrar; else sinPersona">{{mensaje}} con el título de {{titulo}}</p>
             <ng-template #sinPersona>
                 <p>No se ha agregado ninguna persona</p>
             </ng-template>
             
+            
+            
+            
+            
+            
+            <!--Las etiquetas como esta, <app-persona></app-persona>, muestran el contenido que tiene el html de ese componente, es decir
+            si en el  html de persona, hay un párrafo, lo que nos mostraría sería un parrajo al visualizarlo en el navegador. -->
+ 
             <app-persona></app-persona>
+            
+            
+            
+            
+            
 
             <!--Aquí se usan los dos conceptos, Property binding y Event binding
             
