@@ -1,14 +1,10 @@
-<p>
-    Nombre: {{ getNombre() }}
-    Apellido: {{ getApellido() }}
-    Edad: {{ getEdad() + 1}}
-</p>
-
-<!--Template Reference Variable
-
-    //Muestra al lado del input identificado como entrada, el valor introducido en tiempo real
-<div (keyup)='0'>
-    <input #entrada /> {{ entrada.value }}
+<div class="container">
+    <hr/>
+    <div class="row">
+      <div class="col">
+        <div>
+        {{indice+1}}:  {{persona.nombre}} {{persona.apellido}}
+        </div>
+      </div>
+    </div>
 </div>
-
--->
