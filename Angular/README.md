@@ -26,7 +26,7 @@ Meter esto en angular.jason :
 
   "node_modules/bootstrap/dist/css/bootstrap.min.css",
   
-  "src/styles.scss"
+  "src/styles.scss",
   
 ],
 
@@ -36,6 +36,6 @@ Meter esto en angular.jason :
   
   "node_modules/@popperjs/core/dist/umd/popper.min.js",
   
-  "node_modules/bootstrap/dist/js/bootstrap.min.js"
+  "node_modules/bootstrap/dist/js/bootstrap.min.js",
   
 ]
