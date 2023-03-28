@@ -1,1 +1,13 @@
-<app-personas></app-personas>
+             <!--Con *ngFor estamos iterando la lista persona que hay en la clase AppComponent y asignando cada elemento a personaElemento.
+             Y con el concepto @Input, estamos asignando esa personaElemento al atributo [persona] que conecta con un atributo que hay en la clase Persona
+             como @Input() persona: Persona.
+
+             @Input sirve para pasar información de una clase padre a una clase hijo. En este caso, como la clase Appcomponent es la raiz del proyecto, es la
+              considerada padre-->
+            
+            <app-persona 
+            *ngFor="let personaElemento of personas; let i = index"
+            [persona] = "personaElemento"
+            [indice] = "i"
+            >  
+            </app-persona>
