@@ -74,18 +74,6 @@
                 (input)='modificarTitulo($event)'>
             {{titulo}}
             
-           
-            <!--Con *ngFor estamos iterando la lista persona que hay en la clase AppComponent y asignando cada elemento a personaElemento.
-             Y con el concepto @Input, estamos asignando esa personaElemento al atributo [persona] que conecta con un atributo que hay en la clase Persona
-             como @Input() persona: Persona-->
-            
-            <app-persona 
-            *ngFor="let personaElemento of personas; let i = index"
-            [persona] = "personaElemento"
-            [indice] = "i"
-            >  
-            </app-persona>
-            
         </div>
     </div>
 </div>
