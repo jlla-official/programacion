@@ -8,7 +8,7 @@
                 y se le asigna el atributo booleano  en la clase personas 'deshabilitar', 
                 transfiriendole el valor de true o false-->
             
-            <!--(Event binding) En este caso capturamos el evento click para asignarle 
+            <!--(Event binding) Con esto podemos capturar etiquetas y eventos HTML, en este caso, el evento click para asignarle 
                 el método agregarPersoa() de la clase de personas typescript-->
 
             <button class='btn btn-primary' 
@@ -64,18 +64,20 @@
             <p>
                 {{titulo}}
             </p>
-            <!--
             
-            Cada vez que se escribe una letra en el input que 
+            <!-- Cada vez que se escribe una letra en el input que 
             acompaña a la etiqueta Titulo Persona, se manda a llamar
-            el método modificarTitulo
+            el método modificarTitulo -->
             
             <label>Título Persona</label>
             <input type='text' class='form-control' 
                 (input)='modificarTitulo($event)'>
             {{titulo}}
             
-            -->
+           
+            <!--Con *ngFor estamos iterando la lista persona que hay en la clase AppComponent y asignando cada elemento a personaElemento.
+             Y con el concepto @Input, estamos asignando esa personaElemento al atributo [persona] que conecta con un atributo que hay en la clase Persona
+             como @Input() persona: Persona-->
             
             <app-persona 
             *ngFor="let personaElemento of personas; let i = index"
