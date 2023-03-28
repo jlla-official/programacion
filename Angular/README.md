@@ -26,6 +26,7 @@ Meter esto en angular.jason :
   "node_modules/bootstrap/dist/css/bootstrap.min.css",
   "src/styles.scss"
 ],
+
 "scripts": [
   "node_modules/jquery/dist/jquery.min.js",
   "node_modules/@popperjs/core/dist/umd/popper.min.js",
