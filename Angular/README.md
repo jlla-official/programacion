@@ -14,3 +14,20 @@ Levantar una web para visualizar la aplicación:
 
 `ng serve -o`
 
+## INSTALAR BOOTSTRAP en Angular
+
+En terminal con ubicación del proyecto:
+
+`npm install bootstrap jquery @popperjs/core`
+
+Meter esto en angular.jason :
+
+"styles": [
+  "node_modules/bootstrap/dist/css/bootstrap.min.css",
+  "src/styles.scss"
+],
+"scripts": [
+  "node_modules/jquery/dist/jquery.min.js",
+  "node_modules/@popperjs/core/dist/umd/popper.min.js",
+  "node_modules/bootstrap/dist/js/bootstrap.min.js"
+]
