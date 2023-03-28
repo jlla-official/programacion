@@ -1,9 +1,9 @@
-             <!--Con *ngFor estamos iterando la lista persona que hay en la clase AppComponent y asignando cada elemento a personaElemento.
-             Y con el concepto @Input, estamos asignando esa personaElemento al atributo [persona] que conecta con un atributo que hay en la clase Persona
-             como @Input() persona: Persona.
+             <!--
+              La estructura de un for es la vista en el código de abajo *ngFor="let elemento of elementos; let i = index"
 
-             @Input sirve para pasar información de una clase padre a una clase hijo. En este caso, como la clase Appcomponent es la raiz del proyecto, es la
-              considerada padre-->
+             @Input sirve para pasar información de una clase padre a una clase hija. En este caso, como la clase Appcomponent es la raiz del proyecto, es la
+              considerada padre 
+              -->
             
             <app-persona 
             *ngFor="let personaElemento of personas; let i = index"
@@ -11,3 +11,13 @@
             [indice] = "i"
             >  
             </app-persona>
+
+
+          <!--El flujo que sigue la variable [persona] es el siguiente:
+               
+              1.- Se ha declarado en la clase Persona como @Input() persona: Persona
+      
+              2.- Como el arreglo de personas está en la clase Appcomponent, que es la clase padre, en el html de appcomponent se itera el arreglo de personas. 
+                Ahí, es donde empieza a comunicar cada elemento del arreglo de personas a la clase hija Persona, como puede verse en el código de abajo.
+
+              3.- Por último, en el html de Persona, se accede a la variable @Input() persona: Persona , usando {{persona.nombre}} {{persona.apellido}}-->
