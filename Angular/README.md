@@ -1,4 +1,5 @@
 #### LOS ARCHIVOS CON EXTESIÓN .spect.ts , SON PARA HACER PRUEBAS
+#### PARA QUE NO SEA OBLIGATORIO INICIAR LAS VARIABLES, HAY QUE PONER `"strictPropertyInitialization": false,` EN tsconfig.json
 
 > Los comandos pueden ponerse en la terminal de visual para hacer más comodo el trabajo
 
