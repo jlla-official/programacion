@@ -1,9 +1,18 @@
-             <!--
+            
+            <!---->
+
+            <hr/>
+            <app-formulario
+              (personaCreada)="personaAgregada($event)"
+            ></app-formulario>
+            <hr/>
+
+            <!--
               La estructura de un for es la vista en el código de abajo *ngFor="let elemento of elementos; let i = index"
 
              @Input sirve para pasar información de una clase padre a una clase hija. En este caso, como la clase Appcomponent es la raiz del proyecto, es la
               considerada padre 
-              -->
+             -->
             
             <app-persona 
             *ngFor="let personaElemento of personas; let i = index"
