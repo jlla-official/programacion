@@ -1,5 +1,25 @@
             
-            <!---->
+            <!-- INICIO COMENTARIOS
+
+            @Output sirve para pasar información de una clase hija a una clase padre. En este caso, el método personaAgregada de la clase Appcomponent, está recibiendo
+            la persona que emite el método personaCreada de la clase Formulario:
+
+            //De la clase Appcomponent
+
+            personaAgregada(persona : Persona){
+               this.personas.push( persona );
+            }
+
+            //De la clase Formulario
+
+            agregarPersona(){
+                let persona1 = new Persona(this.nombreInput, this.apellidoInput);
+                //this.personas.push( persona1 );
+                this.personaCreada.emit(persona1);
+            }
+            
+
+            FIN COMENTARIOS -->
 
             <hr/>
             <app-formulario
@@ -7,12 +27,16 @@
             ></app-formulario>
             <hr/>
 
-            <!--
-              La estructura de un for es la vista en el código de abajo *ngFor="let elemento of elementos; let i = index"
+            <!--INICIO COMENTARIOS
+
+              La estructura de un for es la que hay en el código de abajo 
+
+                *ngFor="let elemento of elementos; let i = index"
 
              @Input sirve para pasar información de una clase padre a una clase hija. En este caso, como la clase Appcomponent es la raiz del proyecto, es la
-              considerada padre 
-             -->
+              considerada padre.
+
+             FIN COMENTARIOS -->
             
             <app-persona 
             *ngFor="let personaElemento of personas; let i = index"
@@ -22,11 +46,15 @@
             </app-persona>
 
 
-          <!--El flujo que sigue la variable [persona] es el siguiente:
+          <!-- INICIO COMENTARIOS
+
+            El flujo que sigue la variable [persona] es el siguiente:
                
               1.- Se ha declarado en la clase Persona como @Input() persona: Persona
       
               2.- Como el arreglo de personas está en la clase Appcomponent, que es la clase padre, en el html de appcomponent se itera el arreglo de personas. 
-                Ahí, es donde empieza a comunicar cada elemento del arreglo de personas a la clase hija Persona, como puede verse en el código de abajo.
+                Ahí, es donde empieza a comunicar cada elemento del arreglo de personas a la clase hija Persona, como puede verse en el código de arriba.
 
-              3.- Por último, en el html de Persona, se accede a la variable @Input() persona: Persona , usando {{persona.nombre}} {{persona.apellido}}-->
+              3.- Por último, en el html de Persona, se accede a la variable @Input() persona: Persona , usando {{persona.nombre}} {{persona.apellido}}
+
+            FIN COMENTARIOS -->
