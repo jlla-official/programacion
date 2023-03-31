@@ -11,6 +11,10 @@ Crear un nuevo módulo:
 
 `ng g m NombreModulo`
 
+Crear un nuevo componente:
+
+`ng g c NombreModulo`
+
 Levantar una web para visualizar la aplicación:
 
 `ng serve -o`
