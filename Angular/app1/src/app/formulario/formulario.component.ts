@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Output, ViewChild } from '@angular/core';
 import { Persona } from '../persona.model';
 
 @Component({
@@ -19,11 +19,32 @@ export class FormularioComponent {
   //nombreInput : string = '';
   //apellidoInput : string = '';
 
-  //Al declarar una variable con el tipo HTMLInputElement, podemos acceder posteriormente a una serie de métodos como en este caso, el .value
-  agregarPersona(nombreInput : HTMLInputElement, apellidoInput : HTMLInputElement){
-    let persona1 = new Persona(nombreInput.value, apellidoInput.value);
-    //this.personas.push( persona1 );
-    this.personaCreada.emit(persona1); 
-  }
 
+  //Con ViewChild estamos asignando el identificador del input a una variable de la clase con el nombre que queramos, su sintáxis debe ser como abajo
+  @ViewChild('nombreInput') nombreInput : ElementRef;
+  @ViewChild('apellidoInput') apellidoInput : ElementRef;
+
+
+  
+  /*
+    FORMA 1 DE EXTRAER EL VALOR DE UN INPUT (Local Reference)
+    (Al asignar a una variable el tipo HTMLInputElement, podemos acceder posteriormente a una serie de métodos como en este caso, el .value)
+
+    agregarPersona(nombreInput : HTMLInputElement, apellidoInput : HTMLInputElement){
+      let persona1 = new Persona(nombreInput.value, apellidoInput.value);
+      
+      //this.personas.push( persona1 );
+      
+      this.personaCreada.emit(persona1); 
+    }
+  */
+    
+    //FORMA 2 DE EXTRAER EL VALOR DE UN INPUT (ViewChild)
+    agregarPersona(){
+      let persona1 = new Persona(this.nombreInput.nativeElement.value, this.apellidoInput.nativeElement.value);
+      
+      //this.personas.push( persona1 );
+      
+      this.personaCreada.emit(persona1); 
+    }
 }
