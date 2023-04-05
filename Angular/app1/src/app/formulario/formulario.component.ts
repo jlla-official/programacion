@@ -9,12 +9,19 @@ import { Persona } from '../persona.model';
 export class FormularioComponent {
 
   @Output() personaCreada = new EventEmitter<Persona>();
+  
+  /*
+  Como en el formulario.component.html hemos usado el término de local reference, mirar el código allí. Ahorramos el tener que declarar variables para almacenar
+  el contenido de un input, por eso está entre comentarios nombreInput y apellidoInput. Sin embargo, haciendo esto, solo podemos extraer el valor de los input,
+  porque no hay variables creadas y porque no se está usando el ngModel
+  */
 
-  nombreInput : string = '';
-  apellidoInput : string = '';
+  //nombreInput : string = '';
+  //apellidoInput : string = '';
 
-  agregarPersona(){
-    let persona1 = new Persona(this.nombreInput, this.apellidoInput);
+  //Al declarar una variable con el tipo HTMLInputElement, podemos acceder posteriormente a una serie de métodos como en este caso, el .value
+  agregarPersona(nombreInput : HTMLInputElement, apellidoInput : HTMLInputElement){
+    let persona1 = new Persona(nombreInput.value, apellidoInput.value);
     //this.personas.push( persona1 );
     this.personaCreada.emit(persona1); 
   }
