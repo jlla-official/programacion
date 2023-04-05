@@ -1,47 +1,49 @@
 <form class="form-row">
     
-    <div class="form-group col-md-2">
-      
-      <label for="nombre" class="sr-only">Nombre</label>
-        
-        
-      /*
-      Concepto Local Reference, cuando a los input les asignamos este atributo: 
-        
-        #identificadorEjemplo
-        
-      Podemos desde el archivo .ts, en este caso formulario.component.ts, acceder a una serie de métodos para por ejemplo, extraer lo que escribimos en él
-        
-      v Ejemplo abajo v
-      */
-        
-      <input 
-        type="text" 
-        name="nombre" 
-        id="nombre" 
-        placeholder="Nombre"
-        class="form-control" 
-        #nombreInput
-        />
-
-    </div>
-    <div class="form-group col-md-2">
-
-      <label for="apellido" class="sr-only">Apellido</label>
-      
-      <input 
-        type="text" 
-        name="apellido" 
-        id="apellido" 
-        placeholder="Apellido"
-        class="form-control"
-        #apellidoInput
-      />
+  <div class="form-group col-md-2">
     
-    </div>
-    <div class="col">
-      <button type="submit" 
-      class="btn btn-primary" 
-      (click)="agregarPersona(nombreInput, apellidoInput)">Agregar</button>
-    </div>
+    <label for="nombre" class="sr-only">Nombre</label>
+      
+      
+    /*
+    Concepto Local Reference, cuando a los input les asignamos este atributo: 
+      
+      #identificadorEjemplo
+      
+    Podemos desde el archivo .ts, en este caso formulario.component.ts, acceder a una serie de métodos para por ejemplo, extraer lo que escribimos en él
+      
+    v Ejemplo abajo v
+    */
+      
+    <input 
+      type="text" 
+      name="nombre" 
+      id="nombre" 
+      placeholder="Nombre"
+      class="form-control" 
+      #nombreInput
+      />
+
+  </div>
+  <div class="form-group col-md-2">
+
+    <label for="apellido" class="sr-only">Apellido</label>
+    
+    <input 
+      type="text" 
+      name="apellido" 
+      id="apellido" 
+      placeholder="Apellido"
+      class="form-control"
+      #apellidoInput
+    />
+  
+  </div>
+  <div class="col">
+    <button type="submit" 
+    class="btn btn-primary" 
+    (click)="agregarPersona()"
+    >Agregar</button>
+    <!--(click)="agregarPersona(nombreInput, apellidoInput)" Con local reference habría que pasar esas dos variables como argumentos-->
+  </div>
 </form>
