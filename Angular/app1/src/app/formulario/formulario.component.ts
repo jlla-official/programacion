@@ -1,10 +1,13 @@
 import { Component, ElementRef, EventEmitter, Output, ViewChild } from '@angular/core';
 import { Persona } from '../persona.model';
+import { LogginService } from '../LogginService.service';
 
 @Component({
   selector: 'app-formulario',
   templateUrl: './formulario.component.html',
-  styleUrls: ['./formulario.component.css']
+  styleUrls: ['./formulario.component.css'],
+  providers: [LogginService]
+
 })
 export class FormularioComponent {
 
@@ -24,8 +27,13 @@ export class FormularioComponent {
   @ViewChild('nombreInput') nombreInput : ElementRef;
   @ViewChild('apellidoInput') apellidoInput : ElementRef;
 
+  /*A través del concepto Dependency Injection, angular crea una instancia de la clase LogginService que hemos creado, para poder interactuar con ella.
+  También, arriba, en la parte de @Component, debemos crear otro atributo llamado providers, y pasarle entre corchetes la clase que hemos creado para este concepto.
+  Si queremos que todas las clases puedan usar el servicio que queramos, tenemos que hacer lo de providers: [LogginService], en la clase de app-module.ts
+  */
 
-  
+  constructor(private servicio : LogginService){}
+
   /*
     FORMA 1 DE EXTRAER EL VALOR DE UN INPUT (Local Reference)
     (Al asignar a una variable el tipo HTMLInputElement, podemos acceder posteriormente a una serie de métodos como en este caso, el .value)
@@ -42,9 +50,8 @@ export class FormularioComponent {
     //FORMA 2 DE EXTRAER EL VALOR DE UN INPUT (ViewChild)
     agregarPersona(){
       let persona1 = new Persona(this.nombreInput.nativeElement.value, this.apellidoInput.nativeElement.value);
-      
-      //this.personas.push( persona1 );
-      
+      //Aquí abajo en logginServide, estamos usando la clase que hemos instanciado en el constructor, para su método, así como una libreria.
+      this.servicio.enviaMensajeAConsola("Enviamos persona: " + persona1.nombre + " " + persona1.apellido);      
       this.personaCreada.emit(persona1); 
     }
 }
