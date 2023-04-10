@@ -5,7 +5,7 @@
     <label for="nombre" class="sr-only">Nombre</label>
       
       
-    /*
+    <!--
     Concepto Local Reference, cuando a los input les asignamos este atributo: 
       
       #identificadorEjemplo
@@ -13,7 +13,7 @@
     Podemos desde el archivo .ts, en este caso formulario.component.ts, acceder a una serie de métodos para por ejemplo, extraer lo que escribimos en él
       
     v Ejemplo abajo v
-    */
+    -->
       
     <input 
       type="text" 
@@ -42,7 +42,7 @@
   <div class="col">
     <button type="submit" 
     class="btn btn-primary" 
-    (click)="agregarPersona()"
+    (click)="onAgregarPersona()"
     >Agregar</button>
     <!--(click)="agregarPersona(nombreInput, apellidoInput)" Con local reference habría que pasar esas dos variables como argumentos-->
   </div>
