@@ -1,6 +1,7 @@
-import { Component, ElementRef, EventEmitter, Output, ViewChild } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { Persona } from '../persona.model';
 import { LogginService } from '../LogginService.service';
+import { PersonasService } from '../personas.service';
 
 @Component({
   selector: 'app-formulario',
@@ -11,7 +12,7 @@ import { LogginService } from '../LogginService.service';
 })
 export class FormularioComponent {
 
-  @Output() personaCreada = new EventEmitter<Persona>();
+  //@Output() personaCreada = new EventEmitter<Persona>();
   
   /*
   Como en el formulario.component.html hemos usado el término de local reference, mirar el código allí. Ahorramos el tener que declarar variables para almacenar
@@ -32,7 +33,8 @@ export class FormularioComponent {
   Si queremos que todas las clases puedan usar el servicio que queramos, tenemos que hacer lo de providers: [LogginService], en la clase de app-module.ts
   */
 
-  constructor(private servicio : LogginService){}
+  constructor(private loginService : LogginService,
+    private personasService : PersonasService){}
 
   /*
     FORMA 1 DE EXTRAER EL VALOR DE UN INPUT (Local Reference)
@@ -48,10 +50,11 @@ export class FormularioComponent {
   */
     
     //FORMA 2 DE EXTRAER EL VALOR DE UN INPUT (ViewChild)
-    agregarPersona(){
+    onAgregarPersona(){
       let persona1 = new Persona(this.nombreInput.nativeElement.value, this.apellidoInput.nativeElement.value);
-      //Aquí abajo en logginServide, estamos usando la clase que hemos instanciado en el constructor, para su método, así como una libreria.
-      this.servicio.enviaMensajeAConsola("Enviamos persona: " + persona1.nombre + " " + persona1.apellido);      
-      this.personaCreada.emit(persona1); 
+      //Aquí abajo en loginService, estamos usando la clase que hemos instanciado en el constructor, para su método, así como una libreria.
+      this.loginService.enviaMensajeAConsola("Enviamos persona: " + persona1.nombre + " " + persona1.apellido);      
+      //this.personaCreada.emit(persona1); 
+      this.personasService.agregarPersona(persona1);
     }
 }
