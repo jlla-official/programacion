@@ -1,30 +1,25 @@
 import { Component, Input } from '@angular/core';
+import { Persona } from '../persona.model';
+import { PersonasService } from '../personas.service';
 
 @Component({
-    selector: 'app-persona',
-    templateUrl: 'persona.component.html',
-    styleUrls: ['persona.component.css'],
+  selector: 'app-persona',
+  templateUrl: './persona.component.html',
+  styleUrls: ['./persona.component.css']
 })
 
-export class PersonaComponent{
-      
-    @Input() persona: Persona;
-    @Input() indice: number;
+export class PersonaComponent {
 
-    private nombre: string = 'Juan';
-    private apellido: string = 'Perez';
-    private edad: number = 28;
+  /*Con @Input(), la variable persona e indice estan disponibles para modificar su valor desde el html del componente padre, 
+  en este caso app.component.html*/ 
 
-    public getNombre() : string{
-        return this.nombre;
-    }
+  @Input() persona: Persona;
+  @Input() indice: number;
 
-    public getApellido() : string{
-        return this.apellido;
-    }
+  constructor(private personasService : PersonasService){}
 
-    public getEdad() : number{
-        return this.edad;
-    }
-
+  emitirSaludo(){
+    this.personasService.saludar.emit(this.indice);
+  }
+  
 }
