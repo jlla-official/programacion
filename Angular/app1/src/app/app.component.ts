@@ -14,7 +14,7 @@ export class AppComponent implements OnInit{
 
   personas : Persona[] = [];
 
-  //Aquí estamos inyectando nuestros servicios (librerias?), para poder usar sus atributos y métodos
+  //Aquí estamos inyectando nuestros servicios (librerias), para poder usar sus atributos y métodos
   constructor(private loginService : LogginService,
               private personasService : PersonasService){
 
