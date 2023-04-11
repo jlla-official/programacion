@@ -43,21 +43,26 @@
 
              FIN COMENTARIOS -->
             
-            <div class="container">
+           <div class="container">
 
-                        <div class="col">
-                            <h3>{{titulo}}</h3>
-                        </div>
-                          <hr/>
-                          <app-formulario></app-formulario>
-                          <hr/>
-                        <app-persona 
-                        *ngFor="let personaElemento of personas; let i = index"
-                        [persona] = "personaElemento"
-                        [indice] = "i"
-                        >
-                        </app-persona>
-            </div>
+              <div class="col">
+                  <!--El uso de {{}} sirve para mostrar el valor de las variables del archivo .ts del mismo nombre que el .html-->
+                  <h3>{{titulo}}</h3>
+              </div>
+
+              <hr />
+
+              <app-formulario></app-formulario>
+
+              <hr />
+
+              <!--Como en persona.component.ts la variable [persona] y la variable [indice] están definidas con el decorador @Input(), es por lo que podemos
+              desde aquí, modificar sus valores usando esa sintáxis [nombreVariable] = "NuevoValor" -->
+              <app-persona *ngFor="let personaElemento of personas; let i = index" [persona]="personaElemento" [indice]="i">
+              </app-persona>
+
+           </div>
+
 
 
           <!-- INICIO COMENTARIOS
